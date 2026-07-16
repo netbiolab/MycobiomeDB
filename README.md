@@ -305,6 +305,13 @@ MycobiomeDB is distributed under the `https://github.com/netbiolab/MycobiomeDB/b
 
 The source genomes remain subject to the terms and policies of their original providers, including NCBI and JGI. Users are responsible for complying with any applicable terms associated with the original genomic resources.
 
+This project is licensed under the [Creative Commons Attribution 4.0 International License](https://creativecommons.org/licenses/by/4.0/deed.en).
+
+[![CC BY 4.0][cc-by-shield]][cc-by]
+
+[cc-by]: http://creativecommons.org/licenses/by/4.0/
+[cc-by-shield]: https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg
+
 ## Data Sources
 
 The database was constructed using publicly available fungal genomes obtained from:
