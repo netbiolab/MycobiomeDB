@@ -144,10 +144,9 @@ Recommended for:
 
 ## Download
 
-The current release can be downloaded from the GitHub Releases page or the associated data repository.
+The current release can be downloaded from the ZENODO.
 
-* GitHub release: `[ADD GITHUB RELEASE URL]`
-* Version-specific DOI: `[ADD ZENODO DOI]`
+* Version-specific DOI: `10.5281/zenodo.21387880`
 * Current version: `v1.0.0`
 
 The database archive contains the body-site-specific genome collections and prebuilt Kraken2 databases for the gut, oral cavity, skin, and vagina.
@@ -294,7 +293,7 @@ BibTeX:
   version   = {1.0.0},
   publisher = {Zenodo},
   doi       = {10.5281/zenodo.21387880},
-  url       = {https://doi.org/[DOI]}
+  url       = {https://doi.org/10.5281/zenodo.21387880}
 }
 ```
 
@@ -302,7 +301,7 @@ After publication of the associated manuscript, users should cite both the manus
 
 ## License
 
-MycobiomeDB is distributed under the `https://github.com/microbiome-mycobiome/MycobiomeDB/blob/main/LICENSE` license.
+MycobiomeDB is distributed under the `https://github.com/netbiolab/MycobiomeDB/blob/main/LICENSE` license.
 
 The source genomes remain subject to the terms and policies of their original providers, including NCBI and JGI. Users are responsible for complying with any applicable terms associated with the original genomic resources.
 
