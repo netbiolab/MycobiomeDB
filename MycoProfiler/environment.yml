@@ -1,0 +1,20 @@
+# Linux (x86_64) conda environment for MycoProfiler.
+#
+#   conda env create -f environment.yml
+#   conda activate mycoprofiler
+#   pip install -e .            # optional: installs the `mycoprofiler` command
+#
+# Without the pip step, run the tool as `python -m mycoprofiler ...` from the repo root.
+name: mycoprofiler
+channels:
+  - conda-forge
+  - bioconda
+dependencies:
+  - python >=3.8
+  - kraken2 >=2.1.3          # provides both `kraken2` and `kraken2-build`
+  # --- only needed to BUILD the skin (SMGC) database from source genomes ---
+  - pandas >=1.3
+  - openpyxl >=3.0
+  # --- convenience for the download scripts ---
+  - curl
+  - pigz
