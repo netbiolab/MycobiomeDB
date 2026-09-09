@@ -471,6 +471,77 @@ prokaryotic catalogue accounted for.
 
 ---
 
+### Bracken abundance estimation
+
+Bracken can be run separately after MycoProfiler to estimate fungal abundances at the species level.
+
+Use the complete stage-2 fungal Kraken2 report (`*.fungal.kraken2.report`). Do not use the bacterial report, per-read `.kraken2.output`, or a report filtered to species rows.
+
+#### Choose the read length
+
+Set `READ_LEN` to the individual read length in base pairs. For unmerged paired-end reads of 2 × 150 bp, use `150`, not `300`.
+
+For trimmed reads with variable lengths, inspect the lengths of the reads supplied to fungal classification. A representative length is an approximation; document the selection and evaluate its effect if the distribution is broad. Do not automatically assume that the original sequencing-cycle length still applies.
+
+#### Check the Bracken database file
+
+Use the exact fungal database used for MycoProfiler stage 2. The following example assumes gut reads of 150 bp:
+
+```bash
+FUNGAL_DB=/data/mycoprofiler_db/fungal/gut
+READ_LEN=150
+
+ls -lh "${FUNGAL_DB}/database${READ_LEN}mers.kmer_distrib"
+```
+
+If the matching file already exists for this database version, no additional build is needed.
+
+If it is missing, generate it using Bracken:
+
+```bash
+# Example only: verify the actual Kraken2 database k-mer length.
+KMER_LEN=35
+
+bracken-build \
+  -d "${FUNGAL_DB}" \
+  -t 16 \
+  -k "${KMER_LEN}" \
+  -l "${READ_LEN}"
+```
+
+`bracken-build` requires the matching database source sequences and taxonomy/mapping resources, including `library/`, `taxonomy/`, and `seqid2taxid.map`. The three `.k2d` files alone are insufficient for this standard build workflow. If these resources are absent, obtain the matching build resources or a precomputed Bracken distribution file from the database provider.
+
+Build once per fungal database version and read length, then reuse the result for matching samples.
+
+#### Run species-level abundance estimation
+
+With Bracken installed and available on `PATH`, run:
+
+```bash
+FUNGAL_DB=/data/mycoprofiler_db/fungal/gut
+READ_LEN=150
+SAMPLE=SRR1234567
+RESULT_DIR="results/${SAMPLE}"
+
+mkdir -p "${RESULT_DIR}/03_bracken"
+
+bracken \
+  -d "${FUNGAL_DB}" \
+  -i "${RESULT_DIR}/02_fungal_classification/${SAMPLE}.fungal.kraken2.report" \
+  -o "${RESULT_DIR}/03_bracken/${SAMPLE}.fungal.bracken.tsv" \
+  -r "${READ_LEN}" \
+  -l S \
+  -t 10
+```
+
+Here, `-r` selects the read-length-specific distribution, `-l S` requests species-level estimates, and `-t 10` sets the read-count threshold. Bracken's `-t` is not a thread option.
+
+Adjust the site, sample, paths, read length, and threshold for your analysis. Record the Bracken version and parameters alongside the MycoProfiler outputs.
+
+See the [Bracken manual](https://ccb.jhu.edu/software/bracken/index.shtml?t=manual) for installation and parameter details.
+
+---
+
 ## 8. Confidence threshold
 
 **Both Kraken2 stages run at `--confidence 0.2`, and this is fixed.** There is no
