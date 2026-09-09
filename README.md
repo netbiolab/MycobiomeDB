@@ -173,58 +173,13 @@ MycoProfiler supports gut, oral, skin, and vaginal samples, with a Kraken2 confi
 
 **[MycoProfiler installation and usage guide](MycoProfiler/README.md)**
 
-## Kraken2 Usage
+### Downstream abundance estimation with Bracken
 
-### Requirements
+After running MycoProfiler, users can estimate species-level fungal abundances with Bracken using the stage-2 fungal Kraken2 report. The Bracken read-length parameter must match the read length used to generate the corresponding distribution file for the same body-site-specific fungal database.
 
-* Kraken2
-* Sufficient storage space for the selected database
-* Paired-end or single-end shotgun metagenomic sequencing reads
+Bracken is run separately and is not automatically executed by MycoProfiler.
 
-### Classification of paired-end reads
-
-```bash
-kraken2 \
-  --db /path/to/MycobiomeDB/Gut/Kraken2_DB \
-  --paired \
-  --threads 16 \
-  --report sample.kraken2.report \
-  --output sample.kraken2.output \
-  sample_R1.fastq.gz \
-  sample_R2.fastq.gz
-```
-
-Replace `Gut` with `Oral`, `Skin`, or `Vagina` depending on the sample source.
-
-### Classification of single-end reads
-
-```bash
-kraken2 \
-  --db /path/to/MycobiomeDB/Gut/Kraken2_DB \
-  --threads 16 \
-  --report sample.kraken2.report \
-  --output sample.kraken2.output \
-  sample.fastq.gz
-```
-
-### Processing multiple paired-end samples
-
-```bash
-for r1 in *_R1.fastq.gz
-do
-    sample=${r1%_R1.fastq.gz}
-    r2=${sample}_R2.fastq.gz
-
-    kraken2 \
-      --db /path/to/MycobiomeDB/Gut/Kraken2_DB \
-      --paired \
-      --threads 16 \
-      --report ${sample}.kraken2.report \
-      --output ${sample}.kraken2.output \
-      ${r1} \
-      ${r2}
-done
-```
+See [Bracken abundance estimation](MycoProfiler/README.md#bracken-abundance-estimation) for instructions.
 
 ## Choosing the Appropriate Database
 
