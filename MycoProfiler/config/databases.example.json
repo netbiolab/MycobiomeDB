@@ -1,0 +1,26 @@
+{
+  "_comment": [
+    "Copy to config/databases.json and edit the paths, then pass it with",
+    "  mycoprofiler run --db-config config/databases.json ...",
+    "or export MYCOPROFILER_DB_CONFIG=/abs/path/to/databases.json .",
+    "Each path is the DIRECTORY containing hash.k2d, opts.k2d and taxo.k2d.",
+    "Keys you do not use may be omitted entirely.",
+    "This file is only needed if you do NOT use the conventional --db-root layout."
+  ],
+  "gut": {
+    "bacterial": "/data/mycoprofiler_db/bacterial/gut",
+    "fungal": "/data/mycoprofiler_db/fungal/gut"
+  },
+  "oral": {
+    "bacterial": "/data/mycoprofiler_db/bacterial/oral",
+    "fungal": "/data/mycoprofiler_db/fungal/oral"
+  },
+  "skin": {
+    "bacterial": "/data/mycoprofiler_db/bacterial/skin",
+    "fungal": "/data/mycoprofiler_db/fungal/skin"
+  },
+  "vagina": {
+    "bacterial": "/data/mycoprofiler_db/bacterial/vagina",
+    "fungal": "/data/mycoprofiler_db/fungal/vagina"
+  }
+}

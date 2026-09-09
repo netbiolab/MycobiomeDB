@@ -1,0 +1,8 @@
+# MycoProfiler itself has no Python runtime dependencies (standard library only).
+#
+# The lines below are needed ONLY by scripts/build_smgc_kraken2_db.py, which parses
+# the SMGC supplementary .xlsx to derive taxonomy for the skin database.
+# Kraken2 is NOT a Python package -- install it with conda (see environment.yml)
+# or from https://github.com/DerrickWood/kraken2.
+pandas>=1.3
+openpyxl>=3.0

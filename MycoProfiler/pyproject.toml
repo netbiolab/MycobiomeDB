@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mycoprofiler"
+version = "0.1.0"
+description = "Body-site-specific bacterial decontamination and fungal Kraken2 classification of human shotgun metagenomes"
+readme = "README.md"
+requires-python = ">=3.8"
+# No runtime Python dependencies on purpose: the pipeline shells out to Kraken2 and
+# uses only the standard library, so `pip install .` cannot break on a solver.
+dependencies = []
+
+[project.optional-dependencies]
+# Only needed by scripts/build_smgc_kraken2_db.py, which reads the SMGC .xlsx
+# supplementary table. Not needed to run MycoProfiler.
+dbbuild = ["pandas>=1.3", "openpyxl>=3.0"]
+
+[project.scripts]
+mycoprofiler = "mycoprofiler.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["mycoprofiler*"]

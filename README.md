@@ -163,6 +163,16 @@ sha256sum -c checksums.sha256
 
 All files should return `OK`.
 
+## MycoProfiler: Body-site-specific fungal profiling
+
+MycoProfiler processes human shotgun metagenomic reads in two steps:
+1. Kraken2-based bacterial decontamination using a body-site-specific prokaryotic database.
+2. Kraken2 classification of the remaining unclassified reads using the corresponding MycobiomeDB fungal database.
+
+MycoProfiler supports gut, oral, skin, and vaginal samples, with a Kraken2 confidence threshold of 0.2 in both steps.
+
+**[MycoProfiler installation and usage guide](MycoProfiler/README.md)**
+
 ## Kraken2 Usage
 
 ### Requirements
