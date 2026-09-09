@@ -218,19 +218,6 @@ Bracken estimates should be interpreted with caution because:
 
 Apply study-appropriate filtering and normalization, and use consistent database versions and documented parameter-selection rules across samples.
 
-## Companion Resource
-
-Using the MycobiomeDB fungal-profiling pipeline, we also generated a companion resource containing body-site-stratified fungal species profiles for publicly available metagenomic disease cohorts.
-
-The companion resource includes:
-
-* Fungal species profiles from publicly available disease cohorts
-* Body-site-specific abundance tables
-* Comparisons between healthy and diseased samples
-* Fungal taxa showing statistically significant differences between study groups
-
-Information and access instructions for the companion resource will be provided separately.
-
 ## Versioning
 
 MycobiomeDB uses semantic versioning:
