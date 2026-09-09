@@ -47,14 +47,6 @@ The final MycobiomeDB reference panels contain:
 | Skin        |                      642 |
 | Vagina      |                      112 |
 
-## Benchmarking
-
-When used with Kraken2, MycobiomeDB generates species-level fungal taxonomic profiles with substantially fewer false-positive assignments than generic reference databases.
-
-Benchmarking showed that fungal profiles generated using MycobiomeDB with Kraken2 were largely concordant with profiles generated using Bowtie2, while Kraken2 completed the analyses approximately 7- to 24-fold faster.
-
-MycobiomeDB therefore provides an efficient alternative for fungal species profiling in large-scale human shotgun metagenomic studies.
-
 ## Repository Contents
 
 This repository provides two types of resources for each body site:
@@ -198,24 +190,33 @@ For samples whose anatomical origin does not match one of the four available sit
 
 ## Output Interpretation
 
-The Kraken2 report contains taxonomic assignments at multiple ranks. Species-level results can be extracted from rows with the Kraken2 species rank code `S`.
+Bracken estimates species-level fungal abundances by redistributing Kraken2 assignments across taxonomic ranks using database-specific, read-length-dependent probabilities. When Bracken is run with `-l S`, its output provides species-level estimates.
 
-Example:
+Key columns in the Bracken output include:
 
-```bash
-awk -F '\t' '$4 == "S"' sample.kraken2.report \
-  > sample.kraken2.species.report
-```
+| Column                  | Description                                                        |
+| ----------------------- | ------------------------------------------------------------------ |
+| `name`                  | Taxon name                                                         |
+| `taxonomy_id`           | Taxonomy identifier used in the database                           |
+| `taxonomy_lvl`          | Taxonomic rank (`S` for species)                                   |
+| `kraken_assigned_reads` | Count assigned to the taxon before Bracken re-estimation           |
+| `added_reads`           | Additional count allocated by Bracken                              |
+| `new_est_reads`         | Estimated count after re-estimation                                |
+| `fraction_total_reads`  | Relative abundance within the total abundance estimated by Bracken |
 
-Kraken2 read counts should be interpreted with caution because:
+Use `new_est_reads` for estimated count tables and `fraction_total_reads` for relative-abundance profiles. For paired-end Kraken2 classification, the input counts represent read pairs; interpret the resulting estimates in the same counting unit.
+
+Because Bracken is applied to the fungal classification report, these relative abundances describe the estimated fungal community represented in the output. They do not measure the fungal fraction of the original metagenome or absolute fungal abundance.
+
+Bracken estimates should be interpreted with caution because:
 
 * Fungal DNA may be present at very low abundance.
-* Closely related fungal species may share highly similar genomic regions.
-* Contamination from laboratory reagents or the environment may affect low-biomass samples.
-* Database detection does not by itself demonstrate fungal viability or active colonization.
-* Comparisons across samples should account for differences in sequencing depth.
+* Shared genomic sequences and incomplete references can affect abundance estimates.
+* The Bracken distribution file must match the fungal database version and selected read length.
+* Low-abundance estimates may be affected by sequencing depth, the Bracken threshold, and contamination.
+* Bracken does not independently confirm fungal detection, viability, or active colonization.
 
-Appropriate filtering and normalization should be selected according to the study design.
+Apply study-appropriate filtering and normalization, and use consistent database versions and documented parameter-selection rules across samples.
 
 ## Companion Resource
 
