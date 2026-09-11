@@ -1,7 +1,3 @@
-> **September 9, 2026 corrections:** See [FIXES.md](FIXES.md) for the changed
-> download, masking, backup and validation behavior. `--force` now preserves old
-> outputs in an adjacent backup directory. Run download scripts with `bash`.
-
 # MycoProfiler
 
 **Body-site-specific fungal profiling of human shotgun metagenomes.**
