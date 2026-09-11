@@ -836,6 +836,28 @@ JGI policies.
 
 This project is licensed under the [Creative Commons Attribution 4.0 International License](https://creativecommons.org/licenses/by/4.0/deed.en).
 
+MycobiomeDB and MycoProfiler have not yet been described in a peer-reviewed publication or preprint.
+
+Until a corresponding publication becomes available, please cite the database using its version-specific DOI:
+
+> `Sehun Ahn and Insuk Lee. MycobiomeDB: Body-site-stratified fungal genome database enhancing human mycobiome analysis. Version 1.0.0. Zenodo. 10.5281/zenodo.21387880`
+
+BibTeX:
+
+```bibtex
+@dataset{mycobiomedb_v1,
+  author    = {Sehun Ahn and Insuk Lee},
+  title     = {MycobiomeDB: Human Body Site-Specific Fungal Genome Database},
+  year      = {2026},
+  version   = {1.0.0},
+  publisher = {Zenodo},
+  doi       = {10.5281/zenodo.21387880},
+  url       = {https://doi.org/10.5281/zenodo.21387880}
+}
+```
+
+After publication of the associated manuscript, users should cite both the manuscript and the specific database version used in their analysis.
+
 ---
 
 ## 15. Open items
