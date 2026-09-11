@@ -51,9 +51,7 @@ diversity and differential-abundance analysis are deliberately out of scope.
 10. [Intermediate files](#10-intermediate-files)
 11. [Troubleshooting](#11-troubleshooting)
 12. [Scope and interpretation](#12-scope-and-interpretation)
-13. [Validation status](#13-validation-status)
-14. [Citation, licences and terms](#14-citation-licences-and-terms)
-15. [Open items](#15-open-items)
+13. [Citation, licences and terms](#14-citation-licences-and-terms)
 
 ---
 
@@ -727,63 +725,7 @@ whatever is in the sample. Record the MycobiomeDB version you used.
 
 ---
 
-## 13. Validation status
-
-Being explicit about what was and was not run.
-
-### Verified with the automated test suite (mock Kraken2, no databases)
-
-```bash
-python -m unittest discover -s tests -v  # 49 tests, including regression tests
-```
-
-**Result: 40 tests, all passing.** They run against `tests/mock_kraken2.py`, a stand-in
-that reproduces the Kraken2 behaviour MycoProfiler depends on (paired counting, `#`
-expansion in `--unclassified-out`, the stderr summary wording) over ten synthetic read
-pairs with known composition. Covered: argument validation (missing/empty/duplicate/
-mixed-compression inputs, half a pair, sample-id derivation); database resolution and
-its precedence order, plus malformed and incomplete databases; construction of both
-Kraken2 command lines; confidence fixed at 0.2 on both stages; the stage-1 → stage-2
-hand-off carrying exactly the right reads with R1/R2 order preserved; counting units
-for paired and single-end; gzip input handling; intermediate keep/delete/gzip;
-overwrite protection; failure propagation (stage 2 never runs after a stage-1 failure,
-and no manifest or summary is written for a failed run); `--dry-run`; and `check`.
-
-These tests verify **MycoProfiler's own logic only**. They say nothing about
-classification accuracy.
-
-### Validation of this corrected package (2026-09-09)
-
-49 standard-library tests passed, including regression tests for interrupted
-and legacy partial downloads, completed-download reuse, failed forced reruns,
-masking option placement, missing genomes, inspection failure, and clean forced
-SMGC rebuilds. External tools in these tests are mocks. Python compilation and
-Bash syntax checking also passed.
-
-The earlier README described a live VMGC/Myco-HV experiment, but the uploaded
-package did not contain the evidence needed to reproduce it. That experiment
-was not repeated for this corrected package. No real Kraken2 accuracy or
-full-database validation claim is made here.
-
-### NOT performed
-
-* **No database was downloaded from Zenodo, decodebiome.org or EBI.** The download
-  scripts' URLs, file names, byte sizes and MD5 sums were confirmed with HTTP `HEAD`
-  and API requests, but no multi-gigabyte transfer was carried out, so the scripts'
-  full download-extract-install path has not been executed end to end.
-* **The MycobiomeDB archives were not opened.** Their internal directory layout is
-  therefore unconfirmed; the download script searches for `hash.k2d` rather than
-  assuming a path.
-* **`kraken2-build` was not run.** The skin build script's metadata parsing and
-  taxonomy construction were exercised against the real `SMGC.xlsx` (622 records →
-  1,029 taxonomy nodes, 619 species leaves), but the `kraken2-build --add-to-library`
-  and `--build` steps have not been executed.
-* **No accuracy or benchmarking claim is made.** MycoProfiler has not been benchmarked
-  here against MiCoP, EukDetect, or any other tool.
-
----
-
-## 14. Citation, licences and terms
+## 13. Citation, licences and terms
 
 MycoProfiler is a runner for other people's tools and databases. **Cite them.**
 
@@ -859,18 +801,3 @@ BibTeX:
 After publication of the associated manuscript, users should cite both the manuscript and the specific database version used in their analysis.
 
 ---
-
-## 15. Open items
-
-Points that could not be resolved without either the data producer or a very large
-download. None of them blocks running MycoProfiler once the databases are in place.
-
-| # | Item | Why it is open | Suggested resolution |
-|---|---|---|---|
-| 1 | **Internal layout of the MycobiomeDB `.tar.gz` archives** | Would require downloading up to 40 GB; not done here | Extract one archive and confirm the Kraken2 database lands where `download_fungal_db.sh` expects. The script already searches for `hash.k2d` rather than assuming, and fails with instructions if it finds none. |
-| 2 | **HRGM2 `Concat` vs `Rep`** | Both are built from the same 4,824 species representatives; the portal does not document the difference in detail. `Concat` is the default because it is what the reference analyses used | Confirm which build should be canonical for MycoProfiler, or keep `--hrgm2-variant` as a user choice |
-| 3 | **`checksums.sha256` vs `checksums.md5`** | The MycobiomeDB README instructs `sha256sum -c checksums.sha256`, but Zenodo publishes `checksums.md5` | Either publish SHA-256 sums or correct the README. MycoProfiler verifies the MD5 sums that exist. |
-| 4 | **HROM reuse licence** | Not stated in the portal directory listing | Confirm with the data producer before redistributing |
-| 5 | **Low-complexity masking in the reference databases** | Providers do not state whether HRGM2 / HROM / VMGC were built with `dustmasker`. The skin build defaults to `--no-masking` | Confirm, so the locally built skin database matches the other three |
-| 6 | **RAM, disk and build-time figures** | Download sizes and `hash.k2d` sizes are verified byte counts; RAM, extraction overhead and skin build time are **estimates** and labelled as such | Measure on the target hardware and replace the estimates |
-| 7 | **MycoProfiler licence, DOI, authors, publication** | Deliberately not invented | Supply them before publishing the repository |
