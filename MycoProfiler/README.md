@@ -834,10 +834,7 @@ JGI policies.
 
 ### MycoProfiler's own licence and citation
 
-**Not yet assigned.** This repository does not carry a licence file, a DOI, a
-publication or an author list, and none has been invented for it. Add them before
-making the repository public — without a licence file, others have no rights to use
-the code.
+This project is licensed under the [Creative Commons Attribution 4.0 International License](https://creativecommons.org/licenses/by/4.0/deed.en).
 
 ---
 
