@@ -1,8 +1,8 @@
-# Mycobiome-HG/HO/HS/HV
+# MycobiomeDB
 
-**Mycobiome-HG/HO/HS/HV: A Human Body Site-Specific Fungal Genome Database**
+**MycobiomeDB: A Human Body Site-Specific Fungal Genome Database**
 
-Mycobiome-HG/HO/HS/HV is a curated fungal genome resource designed for species-level profiling of the human mycobiome from shotgun metagenomic sequencing data. It provides body-site-specific fungal genome collections and prebuilt Kraken2 databases for four human body sites:
+MycobiomeDB is a curated fungal genome resource designed for species-level profiling of the human mycobiome from shotgun metagenomic sequencing data. It provides body-site-specific fungal genome collections and prebuilt Kraken2 databases for four human body sites:
 
 * Human Gut (HG)
 * Human Oral (HO)
@@ -93,7 +93,7 @@ The exact directory structure may differ depending on the release package.
 
 ## Available Databases
 
-### Gut MycobiomeDB
+### Mycobiome-HG
 
 The gut-specific database contains 766 curated fungal species detected in or associated with the human gut.
 
@@ -103,7 +103,7 @@ Recommended for:
 * Intestinal metagenomes
 * Gut microbiome disease cohorts
 
-### Oral MycobiomeDB
+### Mycobiome-HO
 
 The oral-specific database contains 259 curated fungal species detected in or associated with the human oral cavity.
 
@@ -114,7 +114,7 @@ Recommended for:
 * Dental plaque metagenomes
 * Tongue or buccal samples
 
-### Skin MycobiomeDB
+### Mycobiome-HS
 
 The skin-specific database contains 642 curated fungal species detected in or associated with human skin.
 
@@ -124,7 +124,7 @@ Recommended for:
 * Site-specific cutaneous microbiome studies
 * Skin disease cohorts
 
-### Vaginal MycobiomeDB
+### Mycobiome-HV
 
 The vaginal-specific database contains 112 curated fungal species detected in or associated with the human vagina.
 
