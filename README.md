@@ -1,13 +1,13 @@
-# MycobiomeDB
+# Mycobiome-HG/HO/HS/HV
 
-**MycobiomeDB: A Human Body Site-Specific Fungal Genome Database**
+**Mycobiome-HG/HO/HS/HV: A Human Body Site-Specific Fungal Genome Database**
 
-MycobiomeDB is a curated fungal genome resource designed for species-level profiling of the human mycobiome from shotgun metagenomic sequencing data. It provides body-site-specific fungal genome collections and prebuilt Kraken2 databases for four human body sites:
+Mycobiome-HG/HO/HS/HV is a curated fungal genome resource designed for species-level profiling of the human mycobiome from shotgun metagenomic sequencing data. It provides body-site-specific fungal genome collections and prebuilt Kraken2 databases for four human body sites:
 
-* Gut
-* Oral cavity
-* Skin
-* Vagina
+* Human Gut (HG)
+* Human Oral (HO)
+* Human Skin (HS)
+* Human Vagina (HV)
 
 ## Background
 
