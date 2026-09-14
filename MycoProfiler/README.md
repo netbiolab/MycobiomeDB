@@ -60,12 +60,13 @@ diversity and differential-abundance analysis are deliberately out of scope.
 Choosing a site with `--site` selects **both** databases. They are never mixed
 across sites.
 
+**MycoProfiler-HG/HO/HS/HV**
 | Body site | Stage 1: prokaryotic decontamination | Stage 2: fungal classification | Fungal species |
 |---|---|---|---:|
-| `gut` | HRGM2 representatives (4,824 species) | **Myco-HG** (MycobiomeDB Gut) | 766 |
-| `oral` | HROM representatives (3,426 species) | **Myco-HO** (MycobiomeDB Oral) | 259 |
-| `skin` | SMGC prokaryotic representatives (622 species) | **Myco-HS** (MycobiomeDB Skin) | 642 |
-| `vagina` | VMGC prokaryotic SGB representatives (786 species) | **Myco-HV** (MycobiomeDB Vaginal) | 112 |
+| `gut` | HRGM2 representatives (4,824 species) | **Mycobiome-HG** | 766 |
+| `oral` | HROM representatives (3,426 species) | **Mycobiome-HO** | 259 |
+| `skin` | SMGC prokaryotic representatives (622 species) | **Mycobiome-HS** | 642 |
+| `vagina` | VMGC prokaryotic SGB representatives (786 species) | **Mycobiome-HV** | 112 |
 
 Every stage-1 catalogue is **prokaryote-only**: bacteria plus a small number of
 archaea (26 in HRGM2, 2 in HROM, 1 in SMGC, none in VMGC). None contains human
