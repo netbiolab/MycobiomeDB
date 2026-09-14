@@ -63,10 +63,10 @@ across sites.
 **MycoProfiler-HG/HO/HS/HV**
 | Body site | Stage 1: prokaryotic decontamination | Stage 2: fungal classification | Fungal species |
 |---|---|---|---:|
-| `gut` | HRGM2 representatives (4,824 species) | **Mycobiome-HG** | 766 |
-| `oral` | HROM representatives (3,426 species) | **Mycobiome-HO** | 259 |
-| `skin` | SMGC prokaryotic representatives (622 species) | **Mycobiome-HS** | 642 |
-| `vagina` | VMGC prokaryotic SGB representatives (786 species) | **Mycobiome-HV** | 112 |
+| `human gut(HG)` | HRGM2 representatives (4,824 species) | **Mycobiome-HG** | 766 |
+| `human oral(HO)` | HROM representatives (3,426 species) | **Mycobiome-HO** | 259 |
+| `human skin(HS)` | SMGC prokaryotic representatives (622 species) | **Mycobiome-HS** | 642 |
+| `human vagina(HV)` | VMGC prokaryotic SGB representatives (786 species) | **Mycobiome-HV** | 112 |
 
 Every stage-1 catalogue is **prokaryote-only**: bacteria plus a small number of
 archaea (26 in HRGM2, 2 in HROM, 1 in SMGC, none in VMGC). None contains human
