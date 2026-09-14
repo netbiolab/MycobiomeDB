@@ -5,7 +5,7 @@
 MycoProfiler runs two Kraken2 passes over one sample. The first classifies the reads
 against the *prokaryotic genome catalogue* of the body site the sample came from and
 sets aside everything Kraken2 leaves **unclassified**. The second classifies exactly
-those set-aside reads against the *MycobiomeDB fungal database* for the same body
+those set-aside reads against the *Mycobiome-HG/HO/HS/HV fungal database* for the same body
 site. Both passes run at `--confidence 0.2`.
 
 ```
