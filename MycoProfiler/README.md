@@ -62,7 +62,7 @@ across sites.
 
 **MycoProfilers**
 | Tool Name | Body site | Stage 1: prokaryotic decontamination | Stage 2: fungal classification | Fungal species |
-|-----|---|-----|----|---:|
+|---|---|---|---|---:|
 | MycoProfiler-HG | `human gut(HG)` | HRGM2 representatives (4,824 species) | **Mycobiome-HG** | 766 |
 | MycoProfiler-HO | `human oral(HO)` | HROM representatives (3,426 species) | **Mycobiome-HO** | 259 |
 | MycoProfiler-HS | `human skin(HS)` | SMGC prokaryotic representatives (622 species) | **Mycobiome-HS** | 642 |
