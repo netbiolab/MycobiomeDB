@@ -61,22 +61,16 @@ Choosing a site with `--site` selects **both** databases. They are never mixed
 across sites.
 
 **MycoProfilers**
-| Tool Name | Body site | Stage 1: prokaryotic decontamination | Stage 2: fungal classification | Fungal species |
+- **Stage 1:** Prokaryotic decontamination using representative genomes.
+- **Stage 2:** Fungal classification using body-site-specific Mycobiome databases.
+- Parentheses in Stage 1 indicate species/SGB counts.
+
+| Tool | Human site | Stage 1 DB | Stage 2 DB | Fungal species |
 |---|---|---|---|---:|
-| MycoProfiler-HG | `human gut(HG)` | HRGM2 representatives (4,824 species) | **Mycobiome-HG** | 766 |
-| MycoProfiler-HO | `human oral(HO)` | HROM representatives (3,426 species) | **Mycobiome-HO** | 259 |
-| MycoProfiler-HS | `human skin(HS)` | SMGC prokaryotic representatives (622 species) | **Mycobiome-HS** | 642 |
-| MycoProfiler-HV | `human vagina(HV)` | VMGC prokaryotic SGB representatives (786 species) | **Mycobiome-HV** | 112 |
-
-Every stage-1 catalogue is **prokaryote-only**: bacteria plus a small number of
-archaea (26 in HRGM2, 2 in HROM, 1 in SMGC, none in VMGC). None contains human
-sequence, fungi, or viruses. Full provenance, citations and composition:
-[`docs/DATABASES.md`](docs/DATABASES.md).
-
-Pick the database that matches where the sample came from — feces or intestinal
-biopsy → `gut`; saliva, plaque, tongue or oral rinse → `oral`; skin swab → `skin`;
-vaginal swab → `vagina`. For a sample type that matches none of the four, consider
-carefully whether any of these databases is biologically appropriate.
+| MycoProfiler-HG | Gut (HG) | HRGM2 (4,824) | **Mycobiome-HG** | 766 |
+| MycoProfiler-HO | Oral (HO) | HROM (3,426) | **Mycobiome-HO** | 259 |
+| MycoProfiler-HS | Skin (HS) | SMGC (622) | **Mycobiome-HS** | 642 |
+| MycoProfiler-HV | Vagina (HV) | VMGC SGBs (786) | **Mycobiome-HV** | 112 |
 
 ---
 
