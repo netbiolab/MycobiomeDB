@@ -30,10 +30,10 @@ All four are published together in one Zenodo record.
 
 | Site | MycoProfiler name | Archive | Bytes (compressed) | MD5 |
 |---|---|---|---:|---|
-| Gut | Myco-HG | `Gut.tar.gz` | 40,698,406,476 | `401e5a4322c3bf25f14be0727e5c7f9f` |
-| Oral | Myco-HO | `Oral.tar.gz` | 11,398,360,153 | `3284577302089ce0786c88216a10f121` |
-| Skin | Myco-HS | `Skin.tar.gz` | 27,052,137,193 | `08f327a8cace8702c2beee969f1ceea6` |
-| Vagina | Myco-HV | `Vagina.tar.gz` | 5,438,786,935 | `e7808ba3e3129d16752b2e1f5d35eb3a` |
+| Gut | Mycobiome-HG | `Gut.tar.gz` | 40,698,406,476 | `401e5a4322c3bf25f14be0727e5c7f9f` |
+| Oral | Mycobiome-HO | `Oral.tar.gz` | 11,398,360,153 | `3284577302089ce0786c88216a10f121` |
+| Skin | Mycobiome-HS | `Skin.tar.gz` | 27,052,137,193 | `08f327a8cace8702c2beee969f1ceea6` |
+| Vagina | Mycobiome-HV | `Vagina.tar.gz` | 5,438,786,935 | `e7808ba3e3129d16752b2e1f5d35eb3a` |
 
 Download URL pattern (verified):
 `https://zenodo.org/api/records/21387880/files/<Archive>/content`
